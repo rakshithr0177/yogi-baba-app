@@ -17,5 +17,6 @@ export const authReducer = createReducer(
             state.isAuthenticated = false;
             state.error = action.payload;
         },
+
     }
 )
