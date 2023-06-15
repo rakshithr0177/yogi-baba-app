@@ -1,6 +1,15 @@
 import app from "./app.js"
 import connectDB from "./config/database.js";
 import Razorpay from "razorpay";
+import cors from "cors"
+
+app.use(
+    cors({
+        origin: '*',
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        credentials: true,
+    })
+);
 
 const port = process.env.PORT || 5000
 

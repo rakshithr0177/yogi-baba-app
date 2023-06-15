@@ -35,17 +35,23 @@ import './styles/dashboard.scss'
 import './styles/about.scss'
 import NotFound from './components/Layout/Notfound'
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { loadUser } from './redux/reducers/actions/user'
+import axios from 'axios'
+// import { useDispatch } from 'react-redux'
+// import { loadUser } from './redux/reducers/actions/user'
 
 
 function App() {
 
-  const dispatch = useDispatch()
+  //const dispatch = useDispatch()
   
   useEffect(() => {
-    dispatch(loadUser())
-  },[dispatch])
+    // dispatch(loadUser())
+    const fun = async() => {
+      const { data } = await axios.get('http://localhost:4000/')
+      console.log(data)
+    }
+    fun()
+  },[])
 
   return (
     <div>
