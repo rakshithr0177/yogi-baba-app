@@ -32,11 +32,13 @@ app.use(urlencoded({
     extended: true,
 }))
 
-app.use(cors({
-    credentials: true,
-    origin: process.env.FRONTEND_URL,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-}))
+app.use(
+    cors({
+        origin: [process.env.FRONTEND_URL],
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        credentials: true,
+    })
+);
 
 app.use(passport.authenticate("session"));
 app.use(passport.initialize());

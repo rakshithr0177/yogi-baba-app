@@ -14,12 +14,10 @@ router.get(
 
 router.get(
     "/login",
-    passport.authenticate("google",
-        {
-            successRedirect: "http://localhost:4000/",
-        }
-    )
-)
+    passport.authenticate("google", {
+        successRedirect: process.env.FRONTEND_URL,
+    })
+);
 
 
 router.get("/me", isAuthenticated, myProfile)

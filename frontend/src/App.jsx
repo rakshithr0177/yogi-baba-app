@@ -34,11 +34,18 @@ import './styles/orderDetails.scss'
 import './styles/dashboard.scss'
 import './styles/about.scss'
 import NotFound from './components/Layout/Notfound'
-
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { loadUser } from './redux/reducers/actions/user'
 
 
 function App() {
+
+  const dispatch = useDispatch()
   
+  useEffect(() => {
+    dispatch(loadUser())
+  },[dispatch])
 
   return (
     <div>
